@@ -1,0 +1,13 @@
+# Godot 4 / Pixel Art project ignore
+
+# Carpetas de cache e importación
+.import/
+.godot/
+
+# Archivos temporales
+*.tmp
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
