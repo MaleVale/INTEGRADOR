@@ -43,3 +43,7 @@ func _on_trampolin_area_body_entered(body: Node2D) -> void:
 	if body == self and velocity.y > 0.0:
 		on_ladder = false
 		velocity.y = TRAMPOLINE_BOOST
+
+func _on_agua_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
