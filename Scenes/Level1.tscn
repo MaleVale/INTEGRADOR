@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bx1jta7ljn30u"]
+[gd_scene load_steps=64 format=3 uid="uid://bx1jta7ljn30u"]
 
 [ext_resource type="Texture2D" uid="uid://mgjm08gr1q56" path="res://Assets/Palm Tree Island/Sprites/Background/BG Image.png" id="1_2llne"]
 [ext_resource type="Texture2D" uid="uid://6o884k1w41nc" path="res://Assets/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="2_q12u6"]
@@ -16,6 +16,23 @@
 [ext_resource type="Texture2D" uid="uid://boumrfb2ik1x8" path="res://Assets/Shooter Traps/Sprites/Seashell/Seashell Opening/4.png" id="13_0wsr5"]
 [ext_resource type="Texture2D" uid="uid://dwgcfi8pccs06" path="res://Assets/Shooter Traps/Sprites/Seashell/Seashell Opening/5.png" id="14_jgorv"]
 [ext_resource type="Texture2D" uid="uid://byaa8po1wo6oq" path="res://Assets/Merchant Ship/Sprites/Ship/Destroyed/3.png" id="16_ug0sv"]
+[ext_resource type="Texture2D" uid="uid://b11pysbf3obs1" path="res://Assets/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="17_384de"]
+[ext_resource type="Texture2D" uid="uid://b055ojfoaig7y" path="res://Assets/Merchant Ship/Sprites/Chest Key/Idle/2.png" id="18_bhaf5"]
+[ext_resource type="Texture2D" uid="uid://hxuuox0xj1j2" path="res://Assets/Merchant Ship/Sprites/Chest Key/Idle/3.png" id="19_o0dvq"]
+[ext_resource type="Texture2D" uid="uid://6fi2wkq7xh8d" path="res://Assets/Merchant Ship/Sprites/Chest Key/Idle/4.png" id="20_1nrjw"]
+[ext_resource type="Texture2D" uid="uid://cxnql3irannsd" path="res://Assets/Merchant Ship/Sprites/Chest Key/Idle/5.png" id="21_bqkvc"]
+[ext_resource type="Texture2D" uid="uid://cw3m1715ih6k2" path="res://Assets/Merchant Ship/Sprites/Chest Key/Idle/6.png" id="22_iswit"]
+[ext_resource type="Texture2D" uid="uid://dywsg86n28p8a" path="res://Assets/Merchant Ship/Sprites/Chest Key/Idle/7.png" id="23_ud1sj"]
+[ext_resource type="Texture2D" uid="uid://rmu4h2u5ss32" path="res://Assets/Merchant Ship/Sprites/Chest Key/Idle/8.png" id="24_qvja8"]
+[ext_resource type="Texture2D" uid="uid://26m6frbek3rc" path="res://Assets/Merchant Ship/Sprites/Chest/Unlocked/1.png" id="25_4rcpl"]
+[ext_resource type="Texture2D" uid="uid://dc8d43uymuy48" path="res://Assets/Merchant Ship/Sprites/Chest/Unlocked/2.png" id="26_iu5qg"]
+[ext_resource type="Texture2D" uid="uid://bk0wjnfu41ogb" path="res://Assets/Merchant Ship/Sprites/Chest/Unlocked/3.png" id="27_nlo60"]
+[ext_resource type="Texture2D" uid="uid://b2u7pb4isn6au" path="res://Assets/Merchant Ship/Sprites/Chest/Unlocked/4.png" id="28_ek3m4"]
+[ext_resource type="Texture2D" uid="uid://sbdbv4ktwiac" path="res://Assets/Merchant Ship/Sprites/Chest/Unlocked/5.png" id="29_8tdsi"]
+[ext_resource type="Texture2D" uid="uid://twcjhdxnk7t7" path="res://Assets/Merchant Ship/Sprites/Chest/Unlocked/6.png" id="30_oy1hs"]
+[ext_resource type="Texture2D" uid="uid://c2aql3oymnpf4" path="res://Assets/Merchant Ship/Sprites/Chest/Unlocked/7.png" id="31_euove"]
+[ext_resource type="Texture2D" uid="uid://c8ts6fxyhhasg" path="res://Assets/Merchant Ship/Sprites/Chest/Unlocked/8.png" id="32_3ybmp"]
+[ext_resource type="Script" uid="uid://csxdgn12wrvf2" path="res://Scenes/tesoro.gd" id="33_iu5qg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rpty4"]
 texture = ExtResource("2_q12u6")
@@ -1221,11 +1238,81 @@ size = Vector2(1357.5, 44)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jgorv"]
 size = Vector2(8, 53)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_4rcpl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_384de")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_bhaf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_o0dvq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_1nrjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_bqkvc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_iswit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ud1sj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_qvja8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_384de"]
+size = Vector2(8.86969, 16.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4f7b1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_4rcpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_iu5qg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_nlo60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ek3m4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_8tdsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_oy1hs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_euove")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_3ybmp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rcpl"]
+size = Vector2(30.500183, 22)
+
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("6_t3or0")]
 z_index = 1
-position = Vector2(-260, -21.000002)
+position = Vector2(1483, 234)
 scale = Vector2(0.255, 0.255)
 
 [node name="TileMap_Plataforma" type="TileMap" parent="."]
@@ -1266,7 +1353,7 @@ shape = SubResource("RectangleShape2D_bhaf5")
 position = Vector2(766, 187)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Agua"]
-position = Vector2(-311.25, -17)
+position = Vector2(-322, -14)
 shape = SubResource("RectangleShape2D_ubfni")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Agua"]
@@ -1291,9 +1378,42 @@ position = Vector2(1574, 184)
 position = Vector2(-1, 5.5)
 shape = SubResource("RectangleShape2D_jgorv")
 
+[node name="Llave" type="AnimatedSprite2D" parent="."]
+position = Vector2(1391, 238)
+scale = Vector2(1.916666, 1.3333334)
+sprite_frames = SubResource("SpriteFrames_4rcpl")
+autoplay = "default"
+frame_progress = 0.550894
+
+[node name="Llave" type="Area2D" parent="Llave"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Llave/Llave"]
+position = Vector2(-0.2609253, 0)
+shape = SubResource("RectangleShape2D_384de")
+
+[node name="Tesoro" type="AnimatedSprite2D" parent="."]
+position = Vector2(2752, -9)
+scale = Vector2(1.9999883, 1.5)
+sprite_frames = SubResource("SpriteFrames_4f7b1")
+script = ExtResource("33_iu5qg")
+
+[node name="tesoro" type="Area2D" parent="Tesoro"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tesoro/tesoro"]
+position = Vector2(-0.25, 3.6666665)
+shape = SubResource("RectangleShape2D_4rcpl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Mensaje" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [connection signal="body_entered" from="CadenaAerea" to="Player" method="_on_cadena_aerea_body_entered"]
 [connection signal="body_exited" from="CadenaAerea" to="Player" method="_on_cadena_aerea_body_exited"]
 [connection signal="body_entered" from="Trampolin/TrampolinArea" to="Player" method="_on_trampolin_area_body_entered"]
 [connection signal="body_entered" from="Agua" to="Player" method="_on_agua_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_cadena_aerea_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Player" method="_on_cadena_aerea_body_exited"]
+[connection signal="body_entered" from="Llave/Llave" to="Player" method="_on_llave_body_entered"]
+[connection signal="body_entered" from="Tesoro/tesoro" to="Player" method="_on_area_2d_body_entered"]

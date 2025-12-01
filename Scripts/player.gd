@@ -6,6 +6,8 @@ const GRAVITY := 1200.0
 const TRAMPOLINE_BOOST := -700.0
 
 var on_ladder: bool = false
+var has_key: bool = false
+@onready var mensaje = get_parent().get_node("CanvasLayer/Mensaje")
 
 func _physics_process(delta: float) -> void:
 	if on_ladder:
@@ -47,3 +49,17 @@ func _on_trampolin_area_body_entered(body: Node2D) -> void:
 func _on_agua_body_entered(body: Node2D) -> void:
 	if body == self:
 		get_tree().reload_current_scene()
+
+func _on_llave_body_entered(body: Node2D) -> void:
+	if body == self:
+		has_key = true
+		get_parent().get_node("Llave").queue_free()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body == self:
+		var tesoro = get_parent().get_node("Tesoro")
+		if has_key:
+			mensaje.text = "Encontraste el tesoro"
+			tesoro.reproducir_animacion()
+		else:
+			mensaje.text = "Te falta la llave"
