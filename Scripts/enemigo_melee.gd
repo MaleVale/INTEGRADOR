@@ -33,7 +33,7 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 		player_in_range = false
 		player_ref = null
 		shoot_timer.stop()
-		anim.play("idle")
+		anim.play("Idle")
 
 func _on_shoot_timer_timeout() -> void:
 	if not player_in_range:
