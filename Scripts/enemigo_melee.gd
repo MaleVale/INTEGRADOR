@@ -11,7 +11,7 @@ var player_ref: Node2D = null
 @onready var shoot_timer: Timer = $ShootTimer
 
 func _ready() -> void:
-	anim.play("idle")
+	anim.play("Idle")
 	shoot_timer.wait_time = shoot_interval
 
 func _physics_process(delta: float) -> void:

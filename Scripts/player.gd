@@ -7,7 +7,15 @@ const TRAMPOLINE_BOOST := -700.0
 
 var on_ladder: bool = false
 var has_key: bool = false
+
 @onready var mensaje = get_parent().get_node("CanvasLayer/Mensaje")
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+
+func _ready() -> void:
+	if anim == null:
+		push_error("AnimatedSprite2D no encontrado en: %s" % name)
+	else:
+		print("Player OK, anim encontrado en: ", name)
 
 func _physics_process(delta: float) -> void:
 	if on_ladder:
@@ -15,6 +23,7 @@ func _physics_process(delta: float) -> void:
 		var climb_dir := Input.get_axis("ui_up", "ui_down")
 		velocity.y = climb_dir * 150.0
 		velocity.x = 0
+		_update_animation()
 		move_and_slide()
 		return
 
@@ -30,7 +39,26 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
+	_update_animation()
 	move_and_slide()
+
+func _update_animation() -> void:
+	if on_ladder:
+		anim.play("Idle")
+		return
+
+	if not is_on_floor():
+		anim.play("Jump")
+		if velocity.x != 0:
+			anim.flip_h = velocity.x < 0
+		return
+
+	var direction := Input.get_axis("ui_left", "ui_right")
+	if direction != 0:
+		anim.play("Run")
+		anim.flip_h = direction < 0
+	else:
+		anim.play("Idle")
 
 func _on_cadena_aerea_body_entered(body: Node2D) -> void:
 	if body == self:
