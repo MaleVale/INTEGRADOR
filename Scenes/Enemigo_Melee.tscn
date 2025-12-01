@@ -1,0 +1,104 @@
+[gd_scene load_steps=18 format=3 uid="uid://c7lqkl0mhcl30"]
+
+[ext_resource type="Script" uid="uid://cbk3acb0q4id1" path="res://Scripts/enemigo_melee.gd" id="1_2totx"]
+[ext_resource type="Texture2D" uid="uid://d4jheurwrrmtn" path="res://Assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="1_uxo4j"]
+[ext_resource type="Texture2D" uid="uid://fr5ssmvqg170" path="res://Assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 02.png" id="2_2totx"]
+[ext_resource type="Texture2D" uid="uid://dty1u3ghbkxpb" path="res://Assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 03.png" id="3_m68lg"]
+[ext_resource type="Texture2D" uid="uid://4trojws88m57" path="res://Assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 04.png" id="4_gtnar"]
+[ext_resource type="Texture2D" uid="uid://cgppsgsgo87st" path="res://Assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 05.png" id="5_4l2ye"]
+[ext_resource type="Texture2D" uid="uid://b445ohxg823mk" path="res://Assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 06.png" id="6_h71ar"]
+[ext_resource type="Texture2D" uid="uid://c7js2fr2boq17" path="res://Assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 07.png" id="7_y3o7q"]
+[ext_resource type="Texture2D" uid="uid://bk7jdrhqy7ww6" path="res://Assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 08.png" id="8_gx84u"]
+[ext_resource type="Texture2D" uid="uid://c21rso6hofi84" path="res://Assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 09.png" id="9_6fsmy"]
+[ext_resource type="Texture2D" uid="uid://chyvk1w8x177g" path="res://Assets/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 01.png" id="11_h71ar"]
+[ext_resource type="Texture2D" uid="uid://bwstswlinolvl" path="res://Assets/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 02.png" id="12_y3o7q"]
+[ext_resource type="Texture2D" uid="uid://dye74m7a4x62c" path="res://Assets/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 03.png" id="13_gx84u"]
+[ext_resource type="Texture2D" uid="uid://bhrjc41utpc3y" path="res://Assets/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 04.png" id="14_6fsmy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7amqi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uxo4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2totx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m68lg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gtnar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4l2ye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h71ar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y3o7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gx84u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6fsmy")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_h71ar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_y3o7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gx84u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_6fsmy")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxo4j"]
+size = Vector2(37, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7amqi"]
+size = Vector2(430, 20)
+
+[node name="EnemigoMelee" type="Area2D"]
+script = ExtResource("1_2totx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, 0)
+scale = Vector2(0.8611111, 1)
+sprite_frames = SubResource("SpriteFrames_7amqi")
+animation = &"Idle"
+frame_progress = 0.32450294
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(5.5, -1)
+shape = SubResource("RectangleShape2D_uxo4j")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("RectangleShape2D_7amqi")
+
+[node name="SpawnBullet" type="Marker2D" parent="."]
+position = Vector2(4, -2)
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
