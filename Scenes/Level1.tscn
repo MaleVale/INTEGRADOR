@@ -1510,7 +1510,7 @@ position = Vector2(-297, -41)
 scale = Vector2(1.8928572, 1.72)
 sprite_frames = SubResource("SpriteFrames_aj8od")
 autoplay = "default"
-frame_progress = 0.30253106
+frame_progress = 0.55308497
 
 [node name="Area2D" type="Area2D" parent="BANDERA"]
 
