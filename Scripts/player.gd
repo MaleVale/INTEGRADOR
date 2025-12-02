@@ -93,6 +93,10 @@ func equip_sword() -> void:
 	has_sword = true
 	mensaje.text = "Obtuviste la espada"
 
+func is_immune_to_enemy() -> bool:
+	return has_sword
+
+
 func kill_player() -> void:
 	if is_dead:
 		return

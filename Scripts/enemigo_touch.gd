@@ -11,6 +11,9 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 
 	if body.name == "Player" and body.has_method("kill_player"):
+		if body.has_method("is_immune_to_enemy") and body.is_immune_to_enemy():
+			return
+
 		is_attacking = true
 		anim.play("Attack")
 		set_deferred("monitoring", false)

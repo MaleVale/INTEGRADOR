@@ -19,6 +19,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and body.has_method("kill_player"):
+		if body.has_method("is_immune_to_enemy") and body.is_immune_to_enemy():
+			return
 		body.kill_player()
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
