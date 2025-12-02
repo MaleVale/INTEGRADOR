@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://c7lqkl0mhcl30"]
+[gd_scene load_steps=19 format=3 uid="uid://c7lqkl0mhcl30"]
 
 [ext_resource type="Script" uid="uid://cbk3acb0q4id1" path="res://Scripts/enemigo_melee.gd" id="1_2totx"]
 [ext_resource type="Texture2D" uid="uid://d4jheurwrrmtn" path="res://Assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="1_uxo4j"]
 [ext_resource type="Texture2D" uid="uid://fr5ssmvqg170" path="res://Assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 02.png" id="2_2totx"]
+[ext_resource type="PackedScene" uid="uid://ct43hl2h12ecf" path="res://Scenes/Bullet.tscn" id="2_y3o7q"]
 [ext_resource type="Texture2D" uid="uid://dty1u3ghbkxpb" path="res://Assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 03.png" id="3_m68lg"]
 [ext_resource type="Texture2D" uid="uid://4trojws88m57" path="res://Assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 04.png" id="4_gtnar"]
 [ext_resource type="Texture2D" uid="uid://cgppsgsgo87st" path="res://Assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 05.png" id="5_4l2ye"]
@@ -62,33 +63,35 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("14_6fsmy")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxo4j"]
-size = Vector2(37, 28)
+size = Vector2(31, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7amqi"]
 size = Vector2(430, 20)
 
 [node name="EnemigoMelee" type="Area2D" groups=["Enemy"]]
 script = ExtResource("1_2totx")
+bullet_scene = ExtResource("2_y3o7q")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Enemy"]]
 position = Vector2(5, 0)
 scale = Vector2(0.8611111, 1)
 sprite_frames = SubResource("SpriteFrames_7amqi")
 animation = &"attack"
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(5.5, -1)
+position = Vector2(6, 2)
 shape = SubResource("RectangleShape2D_uxo4j")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_7amqi")
 
 [node name="SpawnBullet" type="Marker2D" parent="."]

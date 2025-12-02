@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://bx1jta7ljn30u"]
+[gd_scene load_steps=69 format=3 uid="uid://bx1jta7ljn30u"]
 
 [ext_resource type="Texture2D" uid="uid://mgjm08gr1q56" path="res://Assets/Palm Tree Island/Sprites/Background/BG Image.png" id="1_2llne"]
 [ext_resource type="Texture2D" uid="uid://6o884k1w41nc" path="res://Assets/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="2_q12u6"]
@@ -38,7 +38,6 @@
 [ext_resource type="PackedScene" uid="uid://037hnyc7hiuj" path="res://Scenes/enemigo_touch.tscn" id="36_8tdsi"]
 [ext_resource type="PackedScene" uid="uid://db645dkfsbmlp" path="res://Scenes/plataforma_movil.tscn" id="37_oy1hs"]
 [ext_resource type="PackedScene" uid="uid://dpt7jago88bom" path="res://Scenes/canon.tscn" id="38_euove"]
-[ext_resource type="PackedScene" uid="uid://3srtrm44a75a" path="res://Scenes/espada.tscn" id="39_3ybmp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rpty4"]
 texture = ExtResource("2_q12u6")
@@ -1320,7 +1319,6 @@ size = Vector2(29.500214, 22.666666)
 z_index = 1
 position = Vector2(-252, -16.000004)
 scale = Vector2(0.255, 0.255)
-sword_scene = ExtResource("39_3ybmp")
 
 [node name="TileMap_Plataforma" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_06um6")
@@ -1417,23 +1415,18 @@ offset_bottom = 23.0
 
 [node name="EnemigoMelee" parent="." instance=ExtResource("34_nlo60")]
 position = Vector2(364, -220)
-bullet_scene = ExtResource("35_ek3m4")
 
 [node name="EnemigoMelee4" parent="EnemigoMelee" instance=ExtResource("34_nlo60")]
 position = Vector2(1878, 225)
-bullet_scene = ExtResource("35_ek3m4")
 
 [node name="EnemigoMelee2" parent="EnemigoMelee" instance=ExtResource("34_nlo60")]
 position = Vector2(1015, 270)
-bullet_scene = ExtResource("35_ek3m4")
 
 [node name="EnemigoMelee" parent="EnemigoMelee" instance=ExtResource("34_nlo60")]
 position = Vector2(128, 260)
-bullet_scene = ExtResource("35_ek3m4")
 
 [node name="EnemigoMelee3" parent="EnemigoMelee" instance=ExtResource("34_nlo60")]
 position = Vector2(1271, 480)
-bullet_scene = ExtResource("35_ek3m4")
 
 [node name="Bullet" parent="." instance=ExtResource("35_ek3m4")]
 position = Vector2(355, -221)

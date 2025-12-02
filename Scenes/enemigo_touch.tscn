@@ -68,7 +68,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uq3jv"]
-size = Vector2(28, 29)
+size = Vector2(23, 23.5)
 
 [node name="EnemigoTouch" type="Area2D" groups=["Enemy"]]
 script = ExtResource("1_02i3y")
@@ -79,8 +79,8 @@ sprite_frames = SubResource("SpriteFrames_vp3bv")
 animation = &"Idle"
 autoplay = "Idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+position = Vector2(4, 3)
 shape = SubResource("RectangleShape2D_uq3jv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

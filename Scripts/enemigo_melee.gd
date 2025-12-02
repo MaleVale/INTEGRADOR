@@ -18,8 +18,8 @@ func _physics_process(delta: float) -> void:
 	pass
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		get_tree().reload_current_scene()
+	if body.name == "Player" and body.has_method("kill_player"):
+		body.kill_player()
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -51,4 +51,4 @@ func _on_shoot_timer_timeout() -> void:
 	else:
 		bullet.direction = Vector2.RIGHT
 
-	get_tree().current_scene.add_child(bullet)
+	get_tree().current_scene.call_deferred("add_child", bullet)
