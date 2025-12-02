@@ -62,7 +62,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("14_6fsmy")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 5.0
 }]
@@ -80,8 +80,7 @@ script = ExtResource("1_2totx")
 position = Vector2(5, 0)
 scale = Vector2(0.8611111, 1)
 sprite_frames = SubResource("SpriteFrames_7amqi")
-animation = &"Idle"
-frame_progress = 0.32450294
+animation = &"attack"
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(5.5, -1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://bx1jta7ljn30u"]
+[gd_scene load_steps=67 format=3 uid="uid://bx1jta7ljn30u"]
 
 [ext_resource type="Texture2D" uid="uid://mgjm08gr1q56" path="res://Assets/Palm Tree Island/Sprites/Background/BG Image.png" id="1_2llne"]
 [ext_resource type="Texture2D" uid="uid://6o884k1w41nc" path="res://Assets/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="2_q12u6"]
@@ -35,6 +35,7 @@
 [ext_resource type="Script" uid="uid://csxdgn12wrvf2" path="res://Scenes/tesoro.gd" id="33_iu5qg"]
 [ext_resource type="PackedScene" uid="uid://c7lqkl0mhcl30" path="res://Scenes/Enemigo_Melee.tscn" id="34_nlo60"]
 [ext_resource type="PackedScene" uid="uid://ct43hl2h12ecf" path="res://Scenes/Bullet.tscn" id="35_ek3m4"]
+[ext_resource type="PackedScene" uid="uid://037hnyc7hiuj" path="res://Scenes/enemigo_touch.tscn" id="36_8tdsi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rpty4"]
 texture = ExtResource("2_q12u6")
@@ -1433,6 +1434,24 @@ bullet_scene = ExtResource("35_ek3m4")
 
 [node name="Bullet" parent="." instance=ExtResource("35_ek3m4")]
 position = Vector2(355, -221)
+
+[node name="EnemigoTouch" parent="." instance=ExtResource("36_8tdsi")]
+position = Vector2(-169, -17)
+
+[node name="EnemigoTouch2" parent="." instance=ExtResource("36_8tdsi")]
+position = Vector2(512, -178)
+
+[node name="EnemigoTouch3" parent="." instance=ExtResource("36_8tdsi")]
+position = Vector2(920, -351)
+
+[node name="EnemigoTouch4" parent="." instance=ExtResource("36_8tdsi")]
+position = Vector2(685, -81)
+
+[node name="EnemigoTouch5" parent="." instance=ExtResource("36_8tdsi")]
+position = Vector2(1524, -351)
+
+[node name="EnemigoTouch6" parent="." instance=ExtResource("36_8tdsi")]
+position = Vector2(1818, -16)
 
 [connection signal="body_entered" from="CadenaAerea" to="Player" method="_on_cadena_aerea_body_entered"]
 [connection signal="body_exited" from="CadenaAerea" to="Player" method="_on_cadena_aerea_body_exited"]
