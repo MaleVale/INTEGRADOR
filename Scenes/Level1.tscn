@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://bx1jta7ljn30u"]
+[gd_scene load_steps=70 format=3 uid="uid://bx1jta7ljn30u"]
 
 [ext_resource type="Texture2D" uid="uid://mgjm08gr1q56" path="res://Assets/Palm Tree Island/Sprites/Background/BG Image.png" id="1_2llne"]
 [ext_resource type="Texture2D" uid="uid://6o884k1w41nc" path="res://Assets/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="2_q12u6"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://037hnyc7hiuj" path="res://Scenes/enemigo_touch.tscn" id="36_8tdsi"]
 [ext_resource type="PackedScene" uid="uid://db645dkfsbmlp" path="res://Scenes/plataforma_movil.tscn" id="37_oy1hs"]
 [ext_resource type="PackedScene" uid="uid://dpt7jago88bom" path="res://Scenes/canon.tscn" id="38_euove"]
+[ext_resource type="PackedScene" uid="uid://3srtrm44a75a" path="res://Scenes/espada.tscn" id="39_3ybmp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rpty4"]
 texture = ExtResource("2_q12u6")
@@ -1317,8 +1318,9 @@ size = Vector2(29.500214, 22.666666)
 
 [node name="Player" parent="." instance=ExtResource("6_t3or0")]
 z_index = 1
-position = Vector2(2460, -292)
+position = Vector2(-252, -16.000004)
 scale = Vector2(0.255, 0.255)
+sword_scene = ExtResource("39_3ybmp")
 
 [node name="TileMap_Plataforma" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_06um6")
@@ -1469,7 +1471,13 @@ position = Vector2(2896, -12)
 scale = Vector2(1.815, 1.815)
 
 [node name="PlataformaMovil4" parent="." instance=ExtResource("37_oy1hs")]
-position = Vector2(2291, -311)
+position = Vector2(1372, -368)
+
+[node name="PlataformaMovil5" parent="." instance=ExtResource("37_oy1hs")]
+position = Vector2(1135, -309)
+
+[node name="PlataformaMovil6" parent="." instance=ExtResource("37_oy1hs")]
+position = Vector2(2782, -730)
 
 [connection signal="body_entered" from="CadenaAerea" to="Player" method="_on_cadena_aerea_body_entered"]
 [connection signal="body_exited" from="CadenaAerea" to="Player" method="_on_cadena_aerea_body_exited"]

@@ -7,6 +7,6 @@ func _physics_process(delta: float) -> void:
 	position += direction * SPEED * delta
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		get_tree().reload_current_scene()
-	queue_free()
+	if body.name == "Player" and body.has_method("kill_player"):
+		body.kill_player()
+	call_deferred("queue_free")
