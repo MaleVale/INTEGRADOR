@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://dpt7jago88bom"]
+
+[ext_resource type="Script" uid="uid://c80dwow0lsbwo" path="res://Scripts/canon.gd" id="1_d4kt2"]
+[ext_resource type="Texture2D" uid="uid://dousobck77oyt" path="res://Assets/Shooter Traps/Sprites/Cannon/Cannon Fire/1.png" id="2_isnms"]
+[ext_resource type="Texture2D" uid="uid://bde45fkd8828h" path="res://Assets/Shooter Traps/Sprites/Cannon/Cannon Fire/2.png" id="3_t0owi"]
+[ext_resource type="Texture2D" uid="uid://db0ih71xj46ew" path="res://Assets/Shooter Traps/Sprites/Cannon/Cannon Fire/3.png" id="4_3lpju"]
+[ext_resource type="Texture2D" uid="uid://do3f5fl2vagb5" path="res://Assets/Shooter Traps/Sprites/Cannon/Cannon Fire/4.png" id="5_2bgxh"]
+[ext_resource type="Texture2D" uid="uid://n0o4kaykxfv3" path="res://Assets/Shooter Traps/Sprites/Cannon/Cannon Fire/5.png" id="6_kndqv"]
+[ext_resource type="Texture2D" uid="uid://ciawswktmbx6o" path="res://Assets/Shooter Traps/Sprites/Cannon/Cannon Fire/6.png" id="7_jwfgg"]
+[ext_resource type="Texture2D" uid="uid://bdf8buhwbptlc" path="res://Assets/Shooter Traps/Sprites/Cannon/Cannon Idle/1.png" id="8_w3cij"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iryfa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_isnms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t0owi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3lpju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2bgxh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kndqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jwfgg")
+}],
+"loop": true,
+"name": &"Fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_w3cij")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4kt2"]
+size = Vector2(34, 29)
+
+[node name="Canon" type="Area2D"]
+script = ExtResource("1_d4kt2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iryfa")
+animation = &"Fire"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_d4kt2")
+
+[connection signal="body_entered" from="." to="." method="_on_Canon_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_AnimatedSprite2D_animation_finished"]
