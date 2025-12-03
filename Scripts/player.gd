@@ -20,18 +20,16 @@ var time_left: float = PHASE1_TIME
 var is_phase2: bool = false
 var gold: int = 0
 
-# ⬇ NUEVO: para que el tesoro solo dé monedas una vez
+# para que el tesoro solo dé monedas una vez
 var treasure_taken: bool = false
-# ⬆
 
 @export var sword_scene: PackedScene
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sword_hitbox: Area2D = $SwordHitbox
 
-# ⬇ referencia al nodo del nivel
+# referencia al nodo del nivel
 @onready var level = get_tree().current_scene
-# ⬆
 
 func _physics_process(delta: float) -> void:
 	if is_dead or has_won:
@@ -120,6 +118,11 @@ func _update_ui() -> void:
 		level.set_key(has_key)
 		level.set_gold(gold)
 
+
+func add_gold(amount: int) -> void:
+	gold += amount
+	_update_ui()
+
 func equip_sword() -> void:
 	if has_sword:
 		return
@@ -199,15 +202,15 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var tesoro = get_parent().get_node("Tesoro")
 		if has_key:
 
-			# ⬇ NUEVO: evitar monedas infinitas
+			# evitar monedas infinitas
 			if treasure_taken:
 				return
 			treasure_taken = true
-			# ⬆
 
 			if level:
 				level.set_message("Encontraste el tesoro")
 			tesoro.reproducir_animacion()
+			level.play_vuelta()
 
 			if not sword_spawned and sword_scene != null:
 				var sword := sword_scene.instantiate()
@@ -215,10 +218,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				get_tree().current_scene.call_deferred("add_child", sword)
 				sword_spawned = true
 
-			gold += 10  # ahora solo da 10 monedas UNA vez
+			
+			add_gold(4)
 			is_phase2 = true
 			time_left = PHASE2_TIME
-			_update_ui()
 		else:
 			if level:
 				level.set_message("Te falta la llave")

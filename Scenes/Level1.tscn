@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://bx1jta7ljn30u"]
+[gd_scene load_steps=85 format=3 uid="uid://bx1jta7ljn30u"]
 
 [ext_resource type="Texture2D" uid="uid://mgjm08gr1q56" path="res://Assets/Palm Tree Island/Sprites/Background/BG Image.png" id="1_2llne"]
 [ext_resource type="Script" uid="uid://bacp18xn6gm8i" path="res://Scripts/level_1.gd" id="1_3ocbn"]
@@ -48,6 +48,9 @@
 [ext_resource type="Texture2D" uid="uid://brnd4ritl0b1r" path="res://Assets/Palm Tree Island/Sprites/Background/Water Reflect Medium 01.png" id="46_6pomb"]
 [ext_resource type="Texture2D" uid="uid://bc0d26ukb86xy" path="res://Assets/Palm Tree Island/Sprites/Background/Water Reflect Medium 04.png" id="47_esgci"]
 [ext_resource type="Texture2D" uid="uid://d1lho41j64212" path="res://Assets/Palm Tree Island/Sprites/Background/Water Reflect Small 02.png" id="48_laadq"]
+[ext_resource type="PackedScene" uid="uid://dpnhw2dfl48i0" path="res://Scenes/moneda.tscn" id="49_lwnrw"]
+[ext_resource type="AudioStream" uid="uid://dqb78r5w7hco" path="res://Assets/ida.mp3" id="50_esgci"]
+[ext_resource type="AudioStream" uid="uid://bd65qdrwgv65v" path="res://Assets/vuelta.mp3" id="51_laadq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rpty4"]
 texture = ExtResource("2_q12u6")
@@ -1467,7 +1470,7 @@ position = Vector2(1271, 480)
 position = Vector2(-220, 270)
 
 [node name="Bullet" parent="." instance=ExtResource("35_ek3m4")]
-position = Vector2(355, -221)
+position = Vector2(307, -220)
 
 [node name="EnemigoTouch" parent="." instance=ExtResource("36_8tdsi")]
 position = Vector2(-169, -17)
@@ -1532,8 +1535,15 @@ shape = SubResource("RectangleShape2D_qa3vx")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Mensaje" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
 offset_bottom = 23.0
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TimeLabel" type="Label" parent="CanvasLayer"]
 offset_left = 8.0
@@ -1572,6 +1582,61 @@ texture = ExtResource("47_esgci")
 position = Vector2(2508.0002, 151)
 scale = Vector2(3.7428572, 16)
 texture = ExtResource("48_laadq")
+
+[node name="Moneda" parent="." instance=ExtResource("49_lwnrw")]
+position = Vector2(295, -270)
+
+[node name="Moneda2" parent="." instance=ExtResource("49_lwnrw")]
+position = Vector2(577, -82)
+
+[node name="Moneda3" parent="." instance=ExtResource("49_lwnrw")]
+position = Vector2(1084, -16)
+
+[node name="Moneda4" parent="." instance=ExtResource("49_lwnrw")]
+position = Vector2(860, 38)
+
+[node name="Moneda5" parent="." instance=ExtResource("49_lwnrw")]
+position = Vector2(1682, 178)
+
+[node name="Moneda6" parent="." instance=ExtResource("49_lwnrw")]
+position = Vector2(1734, -68)
+
+[node name="Moneda7" parent="." instance=ExtResource("49_lwnrw")]
+position = Vector2(2204, 1)
+
+[node name="Moneda8" parent="." instance=ExtResource("49_lwnrw")]
+position = Vector2(2394, -53)
+
+[node name="Moneda9" parent="." instance=ExtResource("49_lwnrw")]
+position = Vector2(2899, -127)
+
+[node name="Moneda10" parent="." instance=ExtResource("49_lwnrw")]
+position = Vector2(2897, -180)
+
+[node name="Moneda11" parent="." instance=ExtResource("49_lwnrw")]
+position = Vector2(2866, -227)
+
+[node name="Moneda12" parent="." instance=ExtResource("49_lwnrw")]
+position = Vector2(2822, -268)
+
+[node name="Moneda13" parent="." instance=ExtResource("49_lwnrw")]
+position = Vector2(2764, -295)
+
+[node name="Moneda14" parent="." instance=ExtResource("49_lwnrw")]
+position = Vector2(2376, -325)
+
+[node name="Moneda15" parent="." instance=ExtResource("49_lwnrw")]
+position = Vector2(1836, -383)
+
+[node name="Moneda16" parent="." instance=ExtResource("49_lwnrw")]
+position = Vector2(1232, -375)
+
+[node name="AudioIda" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("50_esgci")
+autoplay = true
+
+[node name="AudioVuelta" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("51_laadq")
 
 [connection signal="body_entered" from="CadenaAerea" to="Player" method="_on_cadena_aerea_body_entered"]
 [connection signal="body_exited" from="CadenaAerea" to="Player" method="_on_cadena_aerea_body_exited"]
