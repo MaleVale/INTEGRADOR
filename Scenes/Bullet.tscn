@@ -1,21 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct43hl2h12ecf"]
+[gd_scene load_steps=5 format=3 uid="uid://ct43hl2h12ecf"]
 
 [ext_resource type="Script" uid="uid://jdr6ae5g6u7c" path="res://Scripts/bullet.gd" id="1_pypll"]
-[ext_resource type="Texture2D" uid="uid://ctblipcjnr8xn" path="res://Assets/The Crusty Crew/Sprites/Crabby/11-Attack Effect/Attack Effect 01.png" id="2_vg3fc"]
-[ext_resource type="Texture2D" uid="uid://cx2a3gkb5f6j0" path="res://Assets/The Crusty Crew/Sprites/Crabby/11-Attack Effect/Attack Effect 02.png" id="3_cvob7"]
-[ext_resource type="Texture2D" uid="uid://bnn1dehpqv6t5" path="res://Assets/The Crusty Crew/Sprites/Crabby/11-Attack Effect/Attack Effect 03.png" id="4_7k4wi"]
+[ext_resource type="Texture2D" uid="uid://cnqw8ciquiar8" path="res://Assets/Shooter Traps/Sprites/Totems/Wood Spike/Idle/1.png" id="2_14k46"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a2eq7"]
 animations = [{
 "frames": [{
-"duration": 0.81,
-"texture": ExtResource("2_vg3fc")
-}, {
 "duration": 1.0,
-"texture": ExtResource("3_cvob7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_7k4wi")
+"texture": ExtResource("2_14k46")
 }],
 "loop": true,
 "name": &"default",
@@ -23,20 +15,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34s0o"]
-size = Vector2(75, 27)
+size = Vector2(10.5, 10.5)
 
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_pypll")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(20, 0)
-scale = Vector2(0.66101694, 1)
+position = Vector2(61.5, 0)
+scale = Vector2(0.95, 1)
 sprite_frames = SubResource("SpriteFrames_a2eq7")
 autoplay = "default"
-frame_progress = 0.773924
+frame_progress = 0.30398718
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(21, 0)
+position = Vector2(61.75, 0)
 shape = SubResource("RectangleShape2D_34s0o")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
